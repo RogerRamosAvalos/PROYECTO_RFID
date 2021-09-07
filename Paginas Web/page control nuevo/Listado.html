@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Crear Activo</title>
+  
+</head>
+
+<body background="img/8.jpg">
+  <div id="slideout-menu">
+      <ul>
+          <li>
+              <a href="index.html">Inicio</a>
+          </li>
+          <li>
+              <a href="activos.html">Crear Acivo</a>
+          </li>
+          <li>
+              <a href="prestar.html">Prestar</a>
+          </li>
+          <li>
+              <a href="Listado.html">Listado De Activos</a>
+          </li>
+          <li>
+            <a href="historialprestamo.html">Historial De Prestamos</a>
+        </li>
+        <li>
+            <a href="descargar.html">Descargar Activos</a>
+        </li>
+      </ul>
+  </div>
+
+  <nav>
+      <div id="logo-img">
+          <a href="#">
+              <img src="img/logo.png" alt="GTCoding Logo">
+          </a>
+      </div>
+      <div id="menu-icon">
+          <i class="fas fa-bars"></i>
+      </div>
+      <ul>
+          <li>
+              <a href="index.html">Inicio</a>
+          </li>
+          <li>
+              <a  href="activos.html">Crear Activo</a>
+          </li>
+          <li>
+              <a href="prestar.html">Prestar</a>
+          </li>
+          <li>
+              <a class="active" href="Listado.html">Listado De Activos</a>
+          </li>
+          <li>
+            <a  href="historialprestamo.html">Historial De Prestamos</a>
+        </li>
+        <li>
+            <a  href="descargar.html">Descargar Activos</a>
+        </li>
+      </ul>
+  </nav>
+
+  <div id="searchbox">
+      <input type="text" placeholder="Search Here">
+  </div>
+
+  <main>
+    <h2 class="page-heading">Nuestra Lista De Activos</h2>
+
+
+    <center><div class="container">
+        
+        <center><form id="form">
+                    
+                   
+        </form></center>
+        <center><section  id="cardSection">
+
+        </section></center>
+      
+    </div></center>
+    
+
+    
+
+  </main>
+
+  <script src="main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+  <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBHN1iv58dJJGSO7w4U2PmHIzpag9vDP4w",
+        authDomain: "iot-prueba-548fa.firebaseapp.com",
+        databaseURL: "https://iot-prueba-548fa.firebaseio.com",
+        projectId: "iot-prueba-548fa",
+        storageBucket: "iot-prueba-548fa.appspot.com",
+        messagingSenderId: "1008402735008",
+        appId: "1:1008402735008:web:f477539521ee12bd698ec5",
+        measurementId: "G-R9EM8QPEEJ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+  
+    
+    
+  var d= new Date();
+    var t=d.getTime();
+    var counter=t;
+  
+readTask();
+  function readTask(){
+      
+      var task=firebase.database().ref("Activos/");
+      task.on("child_added",function (data){
+          var taskValue=data.val();
+          console.log(taskValue);
+          document.getElementById("cardSection").innerHTML+=`
+
+          <div class="card" style="background:#0413e9; margin: 10px;">
+
+                <div class="card-description">
+                    <h2 class="card-title" style="color:#ffffff;">Codigo: ${taskValue.tag}</h2>
+                    <p class="card-text" style="color:#ffffff;">Nombre: ${taskValue.nombre}</p>
+                    <p class="card-text" style="color:#ffffff;">Modelo: ${taskValue.modelo}</p>
+                    <p class="card-text" style="color:#ffffff;">Responsable: ${taskValue.responsable}</p>
+                    <p class="card-text" style="color:#ffffff;">Grupo: ${taskValue.grupo}</p>
+                    <button type="submit" class="btn btn-primary" id="button1" onclick="gt('${taskValue.responsable}','${taskValue.id}')" style="text-decoration: none;
+                    padding: 10px;
+                    font-weight: 600;
+                    font-size: 20px;
+                    color: #ffffff;
+                    background-color: #1883ba;
+                    border-radius: 6px;
+                    border: 2px solid #0016b0;
+                    margin:10px;">Actualizar</button>
+                    
+                </div>
+            </div>
+
+         
+          `;
+      });
+  }
+  function gt(string,identificador){
+      console.log(identificador);
+    document.getElementById("form").innerHTML=`
+           
+                  <div class="form-group">
+                  <br>
+                      <label for="exampleInputEmail1" style="color:#ffffff">Nuevo Responsable</label>
+                      <br>
+                    <br>
+                      <input type="text" class="form-control" id="valorpasa" aria-describedby="emailHelp" value='${string}'>
+                    
+                    </div>
+                    <br>
+                <button type="submit" class="btn btn-primary" id="button12" onclick="gt1('${identificador}')" style="text-decoration: none;
+                    padding: 10px;
+                    font-weight: 600;
+                    font-size: 20px;
+                    color: #ffffff;
+                    background-color: #1883ba;
+                    border-radius: 6px;
+                    border: 2px solid #0016b0;
+                    margin:10px;">Actualizar Responsable</button>
+            `;
+  }
+
+
+/**  document.getElementById("form").addEventListener("submit",(e)=>{
+
+          var nuevoombre=document.getElementById("nuevovalor").value;
+          
+          e.preventDefault();
+          
+          document.getElementById("form").innerHTML=``;
+    })**/
+
+  function gt1(iden){
+      console.log("ariel llegaste a la funcion final");
+
+            firebase.database().ref('Activos/' + iden).update({
+            responsable: document.getElementById("valorpasa").value
+        }, function(error) {
+            if (error) {
+           console.log("falla en la actulizacion")
+            } else {
+                console.log("actualziado")
+            }
+        });
+
+  }
+
+  
+    </script>
+</body>
+
+</html>

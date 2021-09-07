@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Prueba de la web</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script src='main.js'></script>
+</head>
+<body 
+background="banner.png">
+    
+    <div class="container">
+        <div class="row">
+            <form id="form">
+                <div class="form-group">
+                 
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary" id="button1">Actualizar Datos</button>
+              </form>
+
+        </div>
+        
+
+    </div>
+    <center><div class="col-md-8" id="cardSection">
+
+    </div></center>
+
+    <center><div class="col-md-8" id="cardSection1">
+
+    </div></center>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyBHN1iv58dJJGSO7w4U2PmHIzpag9vDP4w",
+      authDomain: "iot-prueba-548fa.firebaseapp.com",
+      databaseURL: "https://iot-prueba-548fa.firebaseio.com",
+      projectId: "iot-prueba-548fa",
+      storageBucket: "iot-prueba-548fa.appspot.com",
+      messagingSenderId: "1008402735008",
+      appId: "1:1008402735008:web:f477539521ee12bd698ec5",
+      measurementId: "G-R9EM8QPEEJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  
+  
+/**var d= new date();
+  var t=d.getTime();
+  var counter=t;**/
+var counter=0;
+  document.getElementById("form").addEventListener("submit",(e)=>{
+        var task=document.getElementById("task").value;
+        var description=document.getElementById("task1").value;
+        e.preventDefault();
+        createTask(task,description);
+        form.reset();
+  })
+
+function createTask(taskName,descriptio){
+counter+=1;
+console.log(counter);
+var task={
+    task:taskName,
+    id:counter,
+    description:descriptio
+}
+//let db=firebase.database().ref("task/"+counter);
+//db.set(task);
+document.getElementById("cardSection").innerHTML='';
+
+}
+function readTask(){
+    
+    var task=firebase.database().ref("task/");
+    task.orderByKey().on("child_added",function (data){
+        var taskValue=data.val();
+        console.log(taskValue);
+        if(taskValue.task=="Se salio del Rango"){
+            document.getElementById("cardSection").innerHTML=`
+        <div class="card mb-3" style="background:#cb3234; margin: 10px;">
+            <div class="card-body">
+                <h5 class="card-title"> ${taskValue.task}</h5>
+                <p class="card-text"> ${taskValue.description}</p>
+            </div>
+            </div>
+        `;
+        
+        }else{
+            document.getElementById("cardSection").innerHTML=`
+        <div class="card mb-3" style="background:#0413e9; margin: 10px;">
+            <div class="card-body">
+                <h5 class="card-title"> ${taskValue.task}</h5>
+                <p class="card-text"> ${taskValue.description}</p>
+            </div>
+            </div>
+        `;
+       
+        }
+       
+    });
+   
+}
+readTask();
+readTask1();
+function readTask1(){
+    
+    var task=firebase.database().ref("task1/");
+    task.orderByKey().on("child_added",function (data){
+        var taskValue=data.val();
+        console.log(taskValue);
+        if(taskValue.task=="Se salio del Rango"){
+            document.getElementById("cardSection1").innerHTML=`
+        <div class="card mb-3" style="background:#cb3234; margin: 10px;">
+            <div class="card-body">
+                <h5 class="card-title"> ${taskValue.task}</h5>
+                <p class="card-text"> ${taskValue.description}</p>
+            </div>
+            </div>
+        `;
+        
+        }else{
+            document.getElementById("cardSection1").innerHTML=`
+        <div class="card mb-3" style="background:#0413e9; margin: 10px;">
+            <div class="card-body">
+                <h5 class="card-title"> ${taskValue.task}</h5>
+                <p class="card-text"> ${taskValue.description}</p>
+            </div>
+            </div>
+        `;
+       
+        }
+       
+    });
+   
+}
+  </script>
+</body>
+</html>

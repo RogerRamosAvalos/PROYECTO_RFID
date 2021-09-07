@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sistema Activos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <div id="particles-js"></div>
+    <div id="box">
+        <div class="box1 onlywide animated bounceOutLeft" style="animation-delay:1.7s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.9s;"></div>
+        <div class="box2 animated bounceOutRight" style="animation-delay:1.9s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.7s;"></div>
+    </div>
+    <a id="about" onclick="showabout()" class="animated fadeIn" style="animation-delay:2.2s;">EMI</a>
+    <a id="work" href="index2.html" class="animated fadeIn" style="animation-delay:2.2s;">Reportes</a>
+    <a id="contact" onclick="showcontact()" class="animated fadeIn" style="animation-delay:2.2s;">Contactos</a>
+    <div id="middle" class="animated slideInDown" style="animation-delay:2.0s;">
+        <h1>Sistema Electronico Automatizado De Control De Activos Fijos</h1>
+        <h2>Registra/Reporta</h2>
+        <div id="menu">
+            <a onclick="showabout()">Emi</a>
+            <a href="index2.html">Reportes</a>
+            <a onclick="showcontact()">Contactos</a>
+        </div>
+        <table>
+                <tr>
+                    <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social" href="https://www.facebook.com/EMI.UALP" target="_blank"><i class="fab fa-facebook"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social" href="https://twitter.com/emi_lapaz?s=20" target="_blank"><i class="fab fa-twitter"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social" href="https://instagram.com/emi.lapaz?igshid=9c460twu3r01" target="_blank"><i class="fab fa-instagram"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social" href="https://www.emi.edu.bo/" target="_blank"><i class="fab fa-dribbble"></i></a></td>
+                </tr>
+        </table>
+    </div>
+    <div id="work_container" class="container">
+        <div onclick="closework()"><i class="fas fa-angle-right"></i></div>
+        <h1>Reportes de Actualizaciones</h1>
+        <section>
+            <h2>Activos en Estado de Movimiento</h2>
+            
+            <p>
+               Los activos detallados en la siguiente lista estan saliendo fuera del rango estalecido.
+            </p>
+            <center><div class="col-md-8" id="cardSection">
+
+            </div></center>
+        
+             </section>
+    </div>
+    <div id="about_container" class="container">
+            <div onclick="closeabout()"><i class="fas fa-angle-left"></i></div>
+            <h1>Mas Informacion</h1>
+            <section>
+                <h2>Que Hacemos</h2>
+                <p>
+                   Nuestro sistema ofrece un control sobre el movimiento de activos de la Escuela Militar De Ingenieria(EMI) en la cual usaremos los modulos de MPU6050 y la placa ESP8266 para que podamostrasmitir todos los datos en tiempo real sobre el movimiento de activos.
+                </p>
+                <p>
+                 A la par el sistema actualizara los daos de cada activo ya que para cada activo existe un sensor y asi podremos controlar con la hora en las que salen del rango y asi se pueda indetificar atravez de las camaras al que urto el activo.
+                </p>
+            </section>
+            <section>
+                <CENTER><img src="banner.png"></CENTER>
+            </section>
+            <section>
+                <h2>Sistema De Control De Activos</h2>
+                <p>
+                    Actualizaciones automaticas en Tiempo Real sobre los Activos
+                </p>
+            </section>
+        </div>
+          <div id="contact_container" class="container">
+            <div onclick="closecontact()"><i class="fas fa-angle-down"></i></div>
+            <h1>Contactanos</h1>
+            <section>
+                <h2>Proporciona tu Opinion Para Mejorar.</h2>
+                <p>
+                    <form>
+                        <input type="text" placeholder="Nombre" required>
+                        <input type="email" placeholder="Email" required><br>
+                        <textarea placeholder="Tu mensaje" required rows="5"></textarea><br>
+                        <button class="btn_one">Enviar</button>
+                    </form> 
+                </p>
+            </section>
+        </div>
+        <div id="footer">
+            Cuidando Tu Vida <br> <a href="https://www.emi.edu.bo/">Saldremos Adelante</a>
+        </div>
+    <script src="index.js" type="text/javascript"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
