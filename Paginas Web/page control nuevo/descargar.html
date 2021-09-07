@@ -1,130 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
     <script src="https://unpkg.com/xlsx@latest/dist/xlsx.full.min.js"></script>
-        <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-        <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-        
-  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Crear Activo</title>
-  
-</head>
+    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
 
-<body background="img/8.jpg">
-  <div id="slideout-menu">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Crear Activo</title>
+  </head>
+
+  <body background="img/8.jpg">
+    <div id="slideout-menu">
       <ul>
-          <li>
-              <a href="index.html">Inicio</a>
-          </li>
-          <li>
-              <a href="activos.html">Crear Acivo</a>
-          </li>
-          <li>
-              <a href="prestar.html">Prestar</a>
-          </li>
-          <li>
-              <a href="Listado.html">Listado De Activos</a>
-          </li>
-          <li>
-            <a href="historialprestamo.html">Historial De Prestamos</a>
+        <li>
+          <a href="index.html">Inicio</a>
         </li>
         <li>
-            <a href="descargar.html">Descargar Activos</a>
+          <a href="activos.html">Crear Acivo</a>
+        </li>
+        <li>
+          <a href="prestar.html">Prestar</a>
+        </li>
+        <li>
+          <a href="Listado.html">Listado De Activos</a>
+        </li>
+        <li>
+          <a href="historialprestamo.html">Historial De Prestamos</a>
+        </li>
+        <li>
+          <a href="descargar.html">Descargar Activos</a>
+        </li>
+        <li>
+          <a href="descipciones.html">Descripcion De Movimiento MPU6050</a>
         </li>
       </ul>
-  </div>
+    </div>
 
-  <nav>
+    <nav>
       <div id="logo-img">
-          <a href="#">
-              <img src="img/logo.png" alt="GTCoding Logo">
-          </a>
+        <a href="#">
+          <img src="img/logo.png" alt="GTCoding Logo" />
+        </a>
       </div>
       <div id="menu-icon">
-          <i class="fas fa-bars"></i>
+        <i class="fas fa-bars"></i>
       </div>
       <ul>
-          <li>
-              <a href="index.html">Inicio</a>
-          </li>
-          <li>
-              <a  href="activos.html">Crear Activo</a>
-          </li>
-          <li>
-              <a href="prestar.html">Prestar</a>
-          </li>
-          <li>
-              <a  href="Listado.html">Listado De Activos</a>
-          </li>
-          <li>
-            <a  href="historialprestamo.html">Historial De Prestamos</a>
+        <li>
+          <a href="index.html">Inicio</a>
         </li>
         <li>
-            <a class="active" href="descargar.html">Decargar Activos</a>
+          <a href="activos.html">Crear Activo</a>
+        </li>
+        <li>
+          <a href="prestar.html">Prestar</a>
+        </li>
+        <li>
+          <a href="Listado.html">Listado De Activos</a>
+        </li>
+        <li>
+          <a href="historialprestamo.html">Historial De Prestamos</a>
+        </li>
+        <li>
+          <a class="active" href="descargar.html">Decargar Activos</a>
+        </li>
+        <li>
+          <a href="descipciones.html">Descripcion De Movimiento MPU6050</a>
         </li>
       </ul>
-  </nav>
+    </nav>
 
-  <div id="searchbox">
-      <input type="text" placeholder="Search Here">
-  </div>
+    <div id="searchbox">
+      <input type="text" placeholder="Search Here" />
+    </div>
 
-  <main>
-    <h2 class="page-heading">Historial De Todos Los Prestamos</h2>
-    <button id="btnExportar" style="text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 50%;">Exportar</button>
+    <main>
+      <h2 class="page-heading">Historial De Todos Los Prestamos</h2>
+      <button
+        id="btnExportar"
+        style="
+          text-decoration: none;
+          padding: 10px;
+          font-weight: 600;
+          font-size: 20px;
+          color: #ffffff;
+          background-color: #1883ba;
+          border-radius: 6px;
+          border: 2px solid #0016b0;
+          margin-left: 50%;
+        "
+      >
+        Exportar
+      </button>
 
-    <center><div class="container">
-        
-       
-        
-       
-        <table BORDER id="tabla" >
+      <center>
+        <div class="container">
+          <table border id="tabla">
             <thead>
-                   <tr>
-                       <th  style="color:white;padding: 20px;">Identificador</th>
-                       <th  style="color:white; padding: 20px;">Nombre</th>   
-                       <th  style="color:white; padding: 20px;">Marca</th>  
-                       <th  style="color:white; padding: 20px;">Modelo</th>   
-                       <th  style="color:white; padding: 20px;">Responsable</th> 
-                       <th  style="color:white; padding: 20px;">Serie</th> 
-                       <th  style="color:white; padding: 20px;">Tag</th>
-                       <th  style="color:white; padding: 20px;">Grupo</th>
-                       <th  style="color:white; padding: 20px;">Fecha De Compra</th>  
-                       <th  style="color:white; padding: 20px;">Color</th>                                    
-                    </tr>
+              <tr>
+                <th style="color: white; padding: 20px">Identificador</th>
+                <th style="color: white; padding: 20px">Nombre</th>
+                <th style="color: white; padding: 20px">Marca</th>
+                <th style="color: white; padding: 20px">Modelo</th>
+                <th style="color: white; padding: 20px">Responsable</th>
+                <th style="color: white; padding: 20px">Serie</th>
+                <th style="color: white; padding: 20px">Tag</th>
+                <th style="color: white; padding: 20px">Grupo</th>
+                <th style="color: white; padding: 20px">Fecha De Compra</th>
+                <th style="color: white; padding: 20px">Color</th>
+              </tr>
             </thead>
-            <tbody id="tablas" style="color:white;padding: 20px;">                                
-            </tbody>
-        </table>
-    </div></center>
-    
+            <tbody id="tablas" style="color: white; padding: 20px"></tbody>
+          </table>
+        </div>
+      </center>
+    </main>
 
-   
-    
-
-    
-
-  </main>
-
-  <script src="main.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
-  <script>
+    <script src="main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script>
       var firebaseConfig = {
         apiKey: "AIzaSyBHN1iv58dJJGSO7w4U2PmHIzpag9vDP4w",
         authDomain: "iot-prueba-548fa.firebaseapp.com",
@@ -133,74 +141,71 @@
         storageBucket: "iot-prueba-548fa.appspot.com",
         messagingSenderId: "1008402735008",
         appId: "1:1008402735008:web:f477539521ee12bd698ec5",
-        measurementId: "G-R9EM8QPEEJ"
+        measurementId: "G-R9EM8QPEEJ",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
+      var table = document.getElementById("tablas");
 
-     
-var table = document.getElementById("tablas");
-    
-//limpia la tabla
-table.innerHTML = "";
- 
- //con esta función recorre todos los datos almacenados en FB ordenados por mi child(tipo)
+      //limpia la tabla
+      table.innerHTML = "";
 
+      //con esta función recorre todos los datos almacenados en FB ordenados por mi child(tipo)
 
-  readList();
-  function readList(){
-    var task=firebase.database().ref("/Activos");
-    task.on("child_added",function(data){
-        var taskValue=data.val();
-        var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
-  var cell7 = row.insertCell(6);
-  var cell8 = row.insertCell(7);
-  var cell9 = row.insertCell(8);
-  var cell10 = row.insertCell(9);
+      readList();
+      function readList() {
+        var task = firebase.database().ref("/Activos");
+        task.on("child_added", function (data) {
+          var taskValue = data.val();
+          var row = table.insertRow(0);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          var cell8 = row.insertCell(7);
+          var cell9 = row.insertCell(8);
+          var cell10 = row.insertCell(9);
 
-
-  
-  cell1.innerHTML = taskValue.id;
-  cell2.innerHTML = taskValue.nombre;
-  cell3.innerHTML = taskValue.marca;
-  cell4.innerHTML = taskValue.modelo;
-  cell5.innerHTML = taskValue.responsable;
-  cell6.innerHTML = taskValue.serie;
-  cell7.innerHTML = taskValue.tag;
-  cell8.innerHTML = taskValue.grupo;
-  cell9.innerHTML = taskValue.fechacompra;
-  cell10.innerHTML= taskValue.color;
-
-    });
-  }
-  
-
-  
+          cell1.innerHTML = taskValue.id;
+          cell2.innerHTML = taskValue.nombre;
+          cell3.innerHTML = taskValue.marca;
+          cell4.innerHTML = taskValue.modelo;
+          cell5.innerHTML = taskValue.responsable;
+          cell6.innerHTML = taskValue.serie;
+          cell7.innerHTML = taskValue.tag;
+          cell8.innerHTML = taskValue.grupo;
+          cell9.innerHTML = taskValue.fechacompra;
+          cell10.innerHTML = taskValue.color;
+        });
+      }
     </script>
-    <script >
-        const $btnExportar = document.querySelector("#btnExportar"),
-    $tabla = document.querySelector("#tabla");
-    
-    $btnExportar.addEventListener("click", function() {
-    let tableExport = new TableExport($tabla, {
-    exportButtons: false, 
-    filename: "Lista De Activos", 
-    sheetname: "Activos1", 
-    });
-    
-    let datos = tableExport.getExportData();
-    let preferenciasDocumento = datos.tabla.xlsx;
-    tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
-    });
-   
-    </script>
-</body>
+    <script>
+      const $btnExportar = document.querySelector("#btnExportar"),
+        $tabla = document.querySelector("#tabla");
 
+      $btnExportar.addEventListener("click", function () {
+        let tableExport = new TableExport($tabla, {
+          exportButtons: false,
+          filename: "Lista De Activos",
+          sheetname: "Activos1",
+        });
+
+        let datos = tableExport.getExportData();
+        let preferenciasDocumento = datos.tabla.xlsx;
+        tableExport.export2file(
+          preferenciasDocumento.data,
+          preferenciasDocumento.mimeType,
+          preferenciasDocumento.filename,
+          preferenciasDocumento.fileExtension,
+          preferenciasDocumento.merges,
+          preferenciasDocumento.RTL,
+          preferenciasDocumento.sheetname
+        );
+      });
+    </script>
+  </body>
 </html>
