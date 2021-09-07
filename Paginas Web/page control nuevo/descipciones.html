@@ -162,18 +162,6 @@
         ref.on("child_added", (snapshot, prevChildKey) => {
           const newPost = snapshot.val();
 
-          /**
-           * <th style="color: white; padding: 20px">ID</th>
-                <th style="color: white; padding: 20px">Activo</th>
-                <th style="color: white; padding: 20px">Distancia En Centimetros</th>
-                <th style="color: white; padding: 20px">Giroscopio X</th>
-                <th style="color: white; padding: 20px">Giroscopio Y</th>
-                <th style="color: white; padding: 20px">Giroscopio Z</th>
-                <th style="color: white; padding: 20px">Aceleracion X</th>
-                <th style="color: white; padding: 20px">Aceleracion Y</th>
-                <th style="color: white; padding: 20px">Aceleracion Z</th>
-                <th style="color: white; padding: 20px">Estado</th>
-           * **/
           var row = table.insertRow(0);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -206,7 +194,7 @@
       $btnExportar.addEventListener("click", function () {
         let tableExport = new TableExport($tabla, {
           exportButtons: false,
-          filename: "Historial De Activos",
+          filename: "Historial De Movimientos de un activo",
           sheetname: "Hoja1",
         });
         borrarNodo();
