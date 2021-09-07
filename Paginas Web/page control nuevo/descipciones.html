@@ -113,10 +113,16 @@
           <table border id="tabla">
             <thead>
               <tr>
-                <th style="color: white; padding: 20px">Identificador</th>
-                <th style="color: white; padding: 20px">Fecha</th>
-                <th style="color: white; padding: 20px">Codigo Del Activo</th>
-                <th style="color: white; padding: 20px">Usuario</th>
+                <th style="color: white; padding: 20px">ID</th>
+                <th style="color: white; padding: 20px">Activo</th>
+                <th style="color: white; padding: 20px">Distancia En Centimetros</th>
+                <th style="color: white; padding: 20px">Giroscopio X</th>
+                <th style="color: white; padding: 20px">Giroscopio Y</th>
+                <th style="color: white; padding: 20px">Giroscopio Z</th>
+                <th style="color: white; padding: 20px">Aceleracion X</th>
+                <th style="color: white; padding: 20px">Aceleracion Y</th>
+                <th style="color: white; padding: 20px">Aceleracion Z</th>
+                <th style="color: white; padding: 20px">Estado</th>
               </tr>
             </thead>
             <tbody id="tablas" style="color: white; padding: 20px"></tbody>
@@ -153,24 +159,43 @@
       function readList() {
         const db =firebase.database();
         const ref = db.ref("/tabla");
-
-        /* var task = firebase.database().ref("/tabla");
-        task.on("child_added", function (data) {
-          var taskValue = data.val();
-          
-        });*/
         ref.on("child_added", (snapshot, prevChildKey) => {
           const newPost = snapshot.val();
+
+          /**
+           * <th style="color: white; padding: 20px">ID</th>
+                <th style="color: white; padding: 20px">Activo</th>
+                <th style="color: white; padding: 20px">Distancia En Centimetros</th>
+                <th style="color: white; padding: 20px">Giroscopio X</th>
+                <th style="color: white; padding: 20px">Giroscopio Y</th>
+                <th style="color: white; padding: 20px">Giroscopio Z</th>
+                <th style="color: white; padding: 20px">Aceleracion X</th>
+                <th style="color: white; padding: 20px">Aceleracion Y</th>
+                <th style="color: white; padding: 20px">Aceleracion Z</th>
+                <th style="color: white; padding: 20px">Estado</th>
+           * **/
           var row = table.insertRow(0);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
           var cell3 = row.insertCell(2);
           var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          var cell8 = row.insertCell(7);
+          var cell9 = row.insertCell(8);
+          var cell10 = row.insertCell(9);
 
           cell1.innerHTML = newPost.id; 
           cell2.innerHTML = newPost.description;
           cell3.innerHTML = newPost.distanciaCM;
-          cell4.innerHTML = newPost.task;
+          cell4.innerHTML = newPost.giroX;
+          cell5.innerHTML = newPost.giroY;
+          cell6.innerHTML = newPost.giroZ;
+          cell7.innerHTML = newPost.valorX;
+          cell8.innerHTML = newPost.valorY;
+          cell9.innerHTML = newPost.valorZ;
+          cell10.innerHTML = newPost.task;
         });
       }
     </script>
